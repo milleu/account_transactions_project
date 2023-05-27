@@ -8,6 +8,8 @@ packages = [{include = "account_transactions_project"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pytest = "^7.3.1"
+pytest-cov = "^4.1.0"
 
 
 [build-system]
