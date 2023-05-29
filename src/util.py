@@ -4,7 +4,7 @@ from datetime import datetime
 
 def load_operations(filename):
     """открываем файл, а также убираем чтение пустых словарей"""
-    with open(filename, "r") as file:
+    with open(filename, "r", encoding="utf8") as file:
         data = json.load(file)
         new_line = []
         for item in data:
@@ -54,15 +54,11 @@ def reciever_data(word):
         word["to"] = reciever_num
         return reciever_num
     except KeyError:
-      return "Нет получателя"
+      return "Вклад"
 
 def money_amount(word):
-    try:
-        amount = word["operationAmount"]
-        return amount["amount"]
-    except KeyError:
-      pass
-
+    amount = word["operationAmount"]
+    return amount["amount"]
 def currency(word):
     currency = word["operationAmount"]
     currency_code = currency["currency"]
